@@ -2,11 +2,8 @@
   // This is a JSON with Comments file.
   // It's basically JSON, with the addition of comments, and looser syntax 
   // (trailing commas!).
-  
   // Reflame uses this to identify your app.
   "appId": "01GDEEMWDZ6SHEKAXW1KX1QZEA",
-  
-
   // NPM packages listed here will be installed by Reflame every time you update this file.
   "npmPackages": {
     // // This key is the import identifier. You can use anything, but we recommend sticking 
@@ -14,10 +11,8 @@
     // "framer-motion": {
     //   // This is the name of the package on NPM.
     //   "name": "framer-motion",
-    //   // Version of the package to use. Only exact versions are supported.
-    //   "version": "6.2.8",
-    //   // To use a submodule from within a package, add a subpath:
-    //   // "subpaths": ["./some-path"]
+    //   // Version range of the package to use.
+    //   "version": "^6.2.8",
     // },
   },
 }

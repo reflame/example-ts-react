@@ -9,8 +9,12 @@ import * as reactDom from 'react-dom/client'
 import { Root } from '/root.js'
 
 export const init = () => {
+  const root = document.getElementById('root')
+  if (!root) {
+    throw new Error('missing root element')
+  }
   reactDom
-    .createRoot(document.getElementById('root'))
+    .createRoot(root)
     .render(
       <react.StrictMode>
         <Root />
