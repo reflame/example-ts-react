@@ -6,6 +6,12 @@
 // react and react-dom are installed by default, so we can just import them.
 import * as react from 'react'
 import * as reactDom from 'react-dom/client'
+// We import with .js extension because typescript will complain if we used .ts,
+// though Reflame itself supports all of .js, .ts and extensionless import specifiers
+// through import maps.
+//
+// Also note we're using / to refer to the root directory (/app in this case).
+// This is just how absolute paths on the web works natively.
 import { Root } from '/root.js'
 
 export const init = () => {
