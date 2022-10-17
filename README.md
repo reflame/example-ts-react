@@ -1,6 +1,6 @@
 # example-ts-react
 
-An example TypeScript React app built using Reflame.
+An example of a Reflame TypeScript React app.
 
 Reflame only handles deployment and does not actually typecheck (yet). So for typechecking, we'll need to install packages locally using a package.json like we've done here: 
 
