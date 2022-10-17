@@ -29,7 +29,7 @@
     },
     // Just a generally helpful flag to avoid issues around case consistency between source control and different OSes.
     "forceConsistentCasingInFileNames": true,
-    // Optional, but recommended unless we're gradually migrating a JS project.
-    // "strict": true,
+    // Not strictly required, but highly recommended.
+    "strict": true,
   }
 }
