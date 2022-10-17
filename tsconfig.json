@@ -1,63 +1,35 @@
-  // Reflame only handles deployment and does not actually typecheck (yet). So
-  // for typechecking, we'll need to install packages locally using a
-  // package.json like we've done here:
-  //
-  // - For packages that don't have types integrated, such as react and
-  //   react-dom, install their corresponding @types/* package.
-  // - For packages that do have types integrated, install the packages
-  //   directly.
-  //
-  // Note that we've installed them all as devDependencies to indicate that they
-  // have no effect on runtime behavior. Runtime dependencies still need to be
-  // installed separately through .reflame.config.jsonc.
-  //
-  // We can also set up a non-blocking typecheck step using traditional CI
-  // providers such as CircleCI or GitHub actions to notify us when a change
-  // might need to be reverted after it has been deployed instantly using
-  // Reflame.
-  //
-  // Reflame won't support blocking deploys on external processes for the
-  // foreseeable future since that would slow down deploys by many orders of
-  // magnitudes, and negate most of the benefit of Reflame's instant deploys.
-  // Plus, rolling forward and backwards in Reflame is always instant, so we can
-  // deploy fixes immediately, significantly limiting scope of impact.
-  //
-  // We are however working on an integrated testing platform, capable of
-  // running an arbitrary number of browser-based tests within 1-2 seconds, that
-  // could be used to gain confidence in your changes. Let us know if this is
-  // something you're interested in trying out!
-  {
-    "compilerOptions": {
-      // Sets the appropriate root directory.
-      "baseUrl": "./app",
-      // Allows us to run tsc for typechecking without using it as a compiler.
-      "noEmit": true,
-      // This is required for .tsx files to work.
-      // We're not using the TypeScript compiler, so it doesn't matter what value we put here.
-      "jsx": "react-jsx",
-      // Required for packages with esm type declarations to work.
-      "esModuleInterop": true,
-      // Reflame works by transpiling and deploying independent modules.
-      // This ensures we don't use any TypeScript features that would prevent that.
-      // (specifically namespaces and const enums, which are features we probably wouldn't want to use anyways)
-      "isolatedModules": true,
-      // Includes types for all the latest browser features.
-      "lib": [
-        "DOM",
-        "ESNext"
-      ],
-      // Reflame supports importing by absolute path using the browser native '/some/long/path.js' format.
-      // This enables typechecking for this pattern.
-      // Note that we can import using .ts(x) .js(x) or without extensions in Reflame thanks to import maps, 
-      // but TypeScript will complain about .ts(x), so in practice we will probably need to choose one of the other options.
-      "paths": {
-        "/*": [
-          "./*"
-        ]
-      },
-      // Just a generally helpful flag to avoid issues around case consistency between source control and different OSes.
-      "forceConsistentCasingInFileNames": true,
-      // Optional, but recommended unless we're gradually migrating a JS project.
-      // "strict": true,
-    }
+{
+  "compilerOptions": {
+    // Sets the appropriate root directory.
+    "baseUrl": "./app",
+    // Allows us to run tsc for typechecking without using it as a compiler.
+    "noEmit": true,
+    // This is required for .tsx files to work.
+    // We're not using the TypeScript compiler, so it doesn't matter what value we put here.
+    "jsx": "react-jsx",
+    // Required for packages with esm type declarations to work.
+    "esModuleInterop": true,
+    // Reflame works by transpiling and deploying independent modules.
+    // This ensures we don't use any TypeScript features that would prevent that.
+    // (specifically namespaces and const enums, which are features we probably wouldn't want to use anyways)
+    "isolatedModules": true,
+    // Includes types for all the latest browser features.
+    "lib": [
+      "DOM",
+      "ESNext"
+    ],
+    // Reflame supports importing by absolute path using the browser native '/some/long/path.js' format.
+    // This enables typechecking for this pattern.
+    // Note that we can import using .ts(x) .js(x) or without extensions in Reflame thanks to import maps, 
+    // but TypeScript will complain about .ts(x), so in practice we will probably need to choose one of the other options.
+    "paths": {
+      "/*": [
+        "./*"
+      ]
+    },
+    // Just a generally helpful flag to avoid issues around case consistency between source control and different OSes.
+    "forceConsistentCasingInFileNames": true,
+    // Optional, but recommended unless we're gradually migrating a JS project.
+    // "strict": true,
   }
+}
