@@ -10,7 +10,7 @@
   // instantly. 
   "baseDirectory": "app",
   
-  // Reflame will use this to keep your app up to date as we improve the foundation. 
+  // Reflame will use this to keep your app up to date as we make improvements. 
   "foundation": {
     "name": "ts-react",
     "version": 1,
