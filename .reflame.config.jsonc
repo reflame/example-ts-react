@@ -13,7 +13,7 @@
     
   // Reflame will watch this directory for your React source code and ship changes
   // instantly. 
-  "baseDirectory": "app",
+  "sourceDirectory": "app",
   
   // Reflame will use this to keep your app up to date as we make improvements. 
   "foundation": {
