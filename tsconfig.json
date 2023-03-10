@@ -18,10 +18,13 @@
       "DOM",
       "ESNext"
     ],
-    // Reflame supports importing by absolute path using the browser native '/some/long/path.js' format.
+    // Enables typechecking for importing with .ts/tsx file extensions.
+    // Using typescript 5.0-rc for this, will update to stable once ready.
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "module": "ESNext",
+    // Reflame supports importing by absolute path using the browser native '/some/long/path.ts' format.
     // This enables typechecking for this pattern.
-    // Note that we can import using .ts(x) .js(x) or without extensions in Reflame thanks to import maps, 
-    // but TypeScript will complain about .ts(x), so in practice we will probably need to choose one of the other options.
     "paths": {
       "/*": [
         "./*"

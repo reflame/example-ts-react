@@ -12,7 +12,10 @@ import * as reactDom from 'react-dom/client'
 //
 // Also note we're using / to refer to the root directory (/app in this case).
 // This is just how absolute paths on the web works natively.
-import { Root } from '/root.js'
+import { Root } from '/root.tsx'
+
+// CSS imports also work out of the box
+import './global.css'
 
 export const init = () => {
   const root = document.getElementById('root')
